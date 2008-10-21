@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="fly.sound.shoutcast.ShoutcastResponseHeader"/>
+    <classEntry path="fly.sound.MP3StreamPlayer"/>
+    <classEntry path="fly.sound.events.SoundBufferEvent"/>
+    <classEntry path="fly.sound.RawSWFData"/>
+    <classEntry path="fly.sound.events.TitleChangeEvent"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
