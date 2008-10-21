@@ -1,0 +1,33 @@
+<project name="ASDoc build" default="main" >
+    
+	<!-- defines all values for the ASDoc compiler -->
+	<property file="asdoc.properties" />
+	
+	<!-- main target: cleans and compiles ASDocs -->
+	<target name="main" depends="create-docs" />
+	
+	<!-- deletes and recreates the asdoc directory -->
+	<target name="clean" >
+	   <delete dir="${output.dir}" />
+	   <mkdir  dir="${output.dir}" />
+	</target>
+	
+	<!-- runs the asdoc.exe compiler on the source -->
+	<target name="create-docs" >
+		<exec executable="${asdoc.exe}" failonerror="true" >
+			<arg line="-main-title '${main.title}'" />
+			<arg line="-window-title '${window.title}'" />
+			<arg line="-output ${output.dir}" />
+			<arg line="-source-path ../src" />
+			<arg line="-doc-classes fly.sound.MP3StreamPlayer" />
+			<arg line="-library-path ../bin 'D:/Program Files (x86)/Flex Builder 3 Plug-in/sdks/3.2.0.3643/frameworks/libs/player/10' 'D:/Program Files (x86)/Flex Builder 3 Plug-in/sdks/3.2.0.3643/frameworks/libs/air'" />
+		</exec>
+	</target>
+	
+	<!-- writes asdoc output to log file: log.txt -->
+    <target name="log" >
+        <record name="${output.dir}/asdoc-log.txt" action="start" append="true" />
+    </target>
+
+</project>
+

@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="MP3StreamPlayer,fly.sound.MP3StreamPlayer,framesPerSWF,soundBufferSize,overlap,responseHeader,sound,soundChannel,playStream,stopStream" name="keywords">
+<title>fly.sound.MP3StreamPlayer</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'MP3StreamPlayer - MP3Player';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">MP3Player</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../index.html?fly/sound/MP3StreamPlayer.html&amp;fly/sound/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;MP3StreamPlayer</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class MP3StreamPlayer"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">fly.sound</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class MP3StreamPlayer</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">MP3StreamPlayer <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> flash.events.EventDispatcher</td>
+</tr>
+</table>
+<p></p>
+  This class allows you to play a shoutcast stream.
+  
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../sound/MP3StreamPlayer.html#playStream()" target="">playStream()</a>
+<br>
+<a href="../sound/MP3StreamPlayer.html#stopStream()" target="">stopStream()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#framesPerSWF">framesPerSWF</a> : uint<div class="summaryTableDescription">
+   The amount of mp3 frames that will be written to each swf.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#overlap">overlap</a> : uint<div class="summaryTableDescription">
+   The actual MP3 data is not bound to a single MP3 frame, but overlaps 
+   multiple frames.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#responseHeader">responseHeader</a> : <a href="shoutcast/ShoutcastResponseHeader.html">ShoutcastResponseHeader</a>
+<div class="summaryTableDescription">[read-only]
+   A reference to the response header received from the shoutcast server.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sound">sound</a> : Sound<div class="summaryTableDescription">[read-only]
+   A reference to the sound object playing the sound.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#soundBufferSize">soundBufferSize</a> : uint<div class="summaryTableDescription">
+   If you set this propery, the actual playing of the sound will start after the 
+   actual sound buffer contains the given amount of entries.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#soundChannel">soundChannel</a> : SoundChannel<div class="summaryTableDescription">[read-only]
+   A reference to the sound channel returned from calling 
+   the play method.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#MP3StreamPlayer()">MP3StreamPlayer</a>()</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#playStream()">playStream</a>(streamURL:String):void</div>
+<div class="summaryTableDescription">
+   Starts the process of playing a stream.</div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#stopStream()">stopStream</a>():void</div>
+<div class="summaryTableDescription">
+   Stops playing the stream
+   </div>
+</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:bufferEmpty">bufferEmpty</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when the actual sound buffer is empty.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:buffering">buffering</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  This event is dispatched only when the soundBufferSize property is 
+  set.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:close">close</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when the socket is closed.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when buffering is complete and the sound starts playing.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:httpStatus">httpStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched if the header is received from the server
+  </td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when a socket throws an ioError
+  </td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when the stream is buffering.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:securityError">securityError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when the socket throws a security error
+  </td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:titleChange">titleChange</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+  Dispatched when the title has changed.</td><td class="summaryTableOwnerCol">MP3StreamPlayer</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="framesPerSWF"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">framesPerSWF</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var framesPerSWF:uint</code><p>
+   The amount of mp3 frames that will be written to each swf. Make sure 
+   this value is larger then 2 times the overlap.
+   <p />
+   If you lower this value, more swf's need to be generated, but the 
+   time it takes to extract the sound from each swf will go down.
+   <p />
+   This value can be seen as the primary buffer.
+   <p />
+   If the sound is not buffering good enough you can enable the soundBuffer
+   
+   </p><p>The default value is <code>250</code>.</p>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../sound/MP3StreamPlayer.html#soundBuffer" target="">soundBuffer</a>
+</div>
+</div>
+<a name="overlap"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">overlap</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>overlap:uint</code>&nbsp;&nbsp;[read-write]<p>
+   The actual MP3 data is not bound to a single MP3 frame, but overlaps 
+   multiple frames. For this reason we need to write more bytes to an 
+   swf than we actually use. This variable determines the overlap.
+   <p />
+   Raising the overlap helps removing strange clicks.
+   <p />
+   You can not set the overlap higher then 7.
+   
+   </p><p>The default value is <code>7</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get overlap():uint</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set overlap(value:uint):void</code>
+<br>
+</div>
+<a name="responseHeader"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">responseHeader</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>responseHeader:<a href="shoutcast/ShoutcastResponseHeader.html">ShoutcastResponseHeader</a></code>&nbsp;&nbsp;[read-only]<p>
+   A reference to the response header received from the shoutcast server. This reference is available 
+   after the complete event has fired.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get responseHeader():<a href="shoutcast/ShoutcastResponseHeader.html">ShoutcastResponseHeader</a></code>
+<br>
+</div>
+<a name="sound"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sound</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>sound:Sound</code>&nbsp;&nbsp;[read-only]<p>
+   A reference to the sound object playing the sound. This reference is available 
+   after the complete event has fired.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sound():Sound</code>
+<br>
+</div>
+<a name="soundBufferSize"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">soundBufferSize</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var soundBufferSize:uint</code><p>
+   If you set this propery, the actual playing of the sound will start after the 
+   actual sound buffer contains the given amount of entries.
+   <p />
+   Set this property if you get alot of BufferEvent.BUFFER_EMPTY events.
+   <p />
+   Raising this property will increase the delay between buffering and playing.
+   
+   </p></div>
+<a name="soundChannel"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">soundChannel</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>soundChannel:SoundChannel</code>&nbsp;&nbsp;[read-only]<p>
+   A reference to the sound channel returned from calling 
+   the play method. This reference is available 
+   after the complete event has fired.
+   </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get soundChannel():SoundChannel</code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="MP3StreamPlayer()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MP3StreamPlayer</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function MP3StreamPlayer()</code>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="playStream()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">playStream</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function playStream(streamURL:String):void</code><p>
+   Starts the process of playing a stream. The sound will start to play as soon as 
+   the complete event is fired.
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">streamURL</span>:String</code></td>
+</tr>
+</table>
+</div>
+<a name="stopStream()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">stopStream</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function stopStream():void</code><p>
+   Stops playing the stream
+   </p></div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:bufferEmpty"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bufferEmpty</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/SoundBufferEvent.html"><code>fly.sound.events.SoundBufferEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched when the actual sound buffer is empty. If you get this 
+  event alot, raise the soundBufferSize property.
+  
+  </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../sound/MP3StreamPlayer.html#soundBufferSize" target="">soundBufferSize</a>
+</div>
+</div>
+<a name="event:buffering"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">buffering</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/SoundBufferEvent.html"><code>fly.sound.events.SoundBufferEvent</code></a>
+<br>
+<p></p><p>
+  This event is dispatched only when the soundBufferSize property is 
+  set.
+  </p></div>
+<a name="event:close"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+  Dispatched when the socket is closed.
+  </p></div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.Event</code></a>
+<br>
+<p></p><p>
+  Dispatched when buffering is complete and the sound starts playing. 
+  When this event has fired the sound and soundChannel properties are 
+  available.
+  </p></div>
+<a name="event:httpStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">httpStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.HTTPStatusEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched if the header is received from the server
+  </p></div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.IOErrorEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched when a socket throws an ioError
+  </p></div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.ProgressEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched when the stream is buffering. Bytesloaded gives 
+  the amount of mp3Frames in the buffer and bytesTotal is 
+  the value of 'framePerSWF'.
+  
+  </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../sound/MP3StreamPlayer.html#framePerSWF" target="">framePerSWF</a>
+</div>
+</div>
+<a name="event:securityError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">securityError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href=""><code>flash.events.SecurityErrorEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched when the socket throws a security error
+  </p></div>
+<a name="event:titleChange"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">titleChange</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/TitleChangeEvent.html"><code>fly.sound.events.TitleChangeEvent</code></a>
+<br>
+<p></p><p>
+  Dispatched when the title has changed. Timing of this event is not 
+  very precise. On top of that, some streams dispatch the title at 
+  regular intervals instead of once when the song changes.
+  </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
