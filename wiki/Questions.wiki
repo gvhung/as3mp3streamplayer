@@ -24,3 +24,8 @@ The source code for classes in the 'code.google.as3httpclient' package can be fo
 [http://code.google.com/p/as3httpclient/]
 
 The source code for classes in the 'fly.binary.swf' package are from another project I am working on. These classes are not well documented and not complete at time of this release.
+
+
+== Other questions? ==
+
+Just mail me at my gmail account.
