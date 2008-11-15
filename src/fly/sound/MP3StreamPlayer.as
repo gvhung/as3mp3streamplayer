@@ -108,7 +108,7 @@ package fly.sound
 		static private const _preferedLength:uint = _samples * 8;
 		
 		//StreamTitle='Gwen - Le Son Fresh'
-		static private const _titleExtractor:RegExp = /StreamTitle\='(.*?)'/i;
+		static private const _titleExtractor:RegExp = /StreamTitle\='(.*?)(?:'$|';)/i;
 		
 		static private var _showFrame:Tag;
 		static private var _endFrame:Tag;
@@ -250,7 +250,6 @@ package fly.sound
 		private function _socketConnectHandler(e:Event):void
 		{
 			_socket.writeBytes(_socketRequest.constructRequest());
-			//trace(_socketRequest.constructRequest().toString());
 			_socket.flush();
 		}
 		
@@ -330,11 +329,11 @@ package fly.sound
 				{
 					buffering = true;
 				}
-			}
-			
-			if (!buffering && _byteCounter > _metadataInterval + 1)
-			{
-				throw new Error("WE MIGHT HAVE ANOTHER TITLE");
+				
+				if (!buffering && _byteCounter > _metadataInterval + 1)
+				{
+					_checkMetadata();
+				}	
 			}
 			
 			return buffering;
@@ -458,8 +457,6 @@ package fly.sound
 		
 		private function _parseSound(soundClass:Class):void
 		{
-			trace("System.totalMemory:", System.totalMemory);
-			
 			var sound:Sound = new soundClass();
 			
 			var samplesRead:uint;
@@ -563,7 +560,7 @@ package fly.sound
 				dispatchEvent(e);
 			} else
 			{
-				throw new Error("SocketURLLoader: unhandled IOErrorEvent #" + e.text + ": " + e.text);
+				throw new Error("MP3StreamPlayer: unhandled IOErrorEvent #" + e.text + ": " + e.text);
 			}
 		}		
 		
@@ -574,7 +571,7 @@ package fly.sound
 				dispatchEvent(e);
 			} else
 			{
-				throw new Error("SocketURLLoader: unhandled SecurityError #" + e.text + ": " + e.text);
+				throw new Error("MP3StreamPlayer: unhandled SecurityError #" + e.text + ": " + e.text);
 			}
 		}		
 		
