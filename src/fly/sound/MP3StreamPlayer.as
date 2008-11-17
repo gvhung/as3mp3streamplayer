@@ -19,7 +19,6 @@ package fly.sound
 	import flash.net.URLRequestMethod;
 	import flash.system.Capabilities;
 	import flash.system.LoaderContext;
-	import flash.system.System;
 	import flash.utils.ByteArray;
 	import flash.utils.setTimeout;
 	
@@ -32,6 +31,7 @@ package fly.sound
 	import fly.binary.swf.tags.soundClasses.errors.InvalidBitrateError;
 	import fly.binary.swf.tags.soundClasses.errors.InvalidHeaderStart;
 	import fly.binary.swf.tags.soundClasses.errors.InvalidMPEGVersionError;
+	import fly.binary.swf.tags.soundClasses.errors.InvalidSamplingRateError;
 	import fly.binary.swf.tags.soundClasses.errors.NotEnoughBytesError;
 	import fly.binary.swf.tags.tagClasses.TagNames;
 	import fly.sound.events.SoundBufferEvent;
@@ -151,6 +151,7 @@ package fly.sound
 		private var _overlap:uint;
 		
 		private var _foundHeader:Boolean;
+		private var _foundMP3Start:Boolean;
 		
 		private var _socket:Socket;
 		private var _socketRequest:SocketHTTPRequest;
@@ -227,6 +228,7 @@ package fly.sound
 		public function stopStream():void
 		{
 			_foundHeader = false;
+			_foundMP3Start = false;
 			_socket.close();
 			_socketRequest = null
 			_mp3Frames.splice(0);
@@ -275,7 +277,13 @@ package fly.sound
 			
 			if (_foundHeader)
 			{
-				_gatherMP3Data();
+				if (_foundMP3Start)
+				{
+					_gatherMP3Data();
+				} else
+				{
+					_findMP3DataStart();
+				}
 			} else
 			{
 				_findHeader();
@@ -299,6 +307,7 @@ package fly.sound
 					var position:uint = _metadataInterval + (_streamBuffer.length - _byteCounter);
 					_streamBuffer.position = position;
 					var length:uint = _streamBuffer.readUnsignedByte() * 16;
+					
 					if (length)
 					{
 						if (_streamBuffer.length >= position + 1 + length)
@@ -313,18 +322,21 @@ package fly.sound
 						}
 					}
 
-					_streamBuffer.position = 0;
-					
-					var temp:SWFByteArray = new SWFByteArray();
-					//read the first part
-					_streamBuffer.readBytes(temp, 0, position);
-					_streamBuffer.position = position + length + 1;
-					//read the second part
-					_streamBuffer.readBytes(temp, temp.length);
-					
-					_streamBuffer = temp;
-					
-					_byteCounter -= _metadataInterval + length + 1;
+					if (!buffering)
+					{
+						_streamBuffer.position = 0;
+						
+						var temp:SWFByteArray = new SWFByteArray();
+						//read the first part
+						_streamBuffer.readBytes(temp, 0, position);
+						_streamBuffer.position = position + length + 1;
+						//read the second part
+						_streamBuffer.readBytes(temp, temp.length);
+						
+						_streamBuffer = temp;
+						
+						_byteCounter -= _metadataInterval + length + 1;
+					}
 				} else
 				{
 					buffering = true;
@@ -386,13 +398,80 @@ package fly.sound
 			}
 		}
 		
+		private function _findMP3DataStart():void
+		{
+			/*
+				In this method we check if we can find 2 frames in a row. This 
+				is done in order to make sure we get actual frames and not a 
+				piece of sound that accidentally has the correct bytes.
+			*/
+			var mp3Frame1:MP3Frame;
+			var mp3Frame2:MP3Frame;
+			var originalPosition:uint;
+			
+			while (_streamBuffer.bytesAvailable > 1)
+			{
+				originalPosition = _streamBuffer.position;
+				
+				try
+				{
+					mp3Frame1 = new MP3Frame();
+					mp3Frame1.readFrom(_streamBuffer);
+
+					if (_streamBuffer.bytesAvailable < 2)
+					{
+						throw new NotEnoughBytesError("Not enough bytes available to search for second frame");
+					}
+					
+					mp3Frame2 = new MP3Frame();
+					mp3Frame2.readFrom(_streamBuffer);
+					
+					if (mp3Frame1.bitrate != mp3Frame2.bitrate ||
+						mp3Frame1.mpegVersion != mp3Frame2.mpegVersion ||
+						mp3Frame1.channelMode != mp3Frame2.channelMode ||
+						mp3Frame1.layer != mp3Frame2.layer ||
+						mp3Frame1.samplingRate != mp3Frame2.samplingRate)
+					{
+						throw new InvalidBitrateError("Both frames are not compatible");
+					}
+					
+					//remove the bytes up to the original position
+					_streamBuffer.position = originalPosition;
+					
+					var rest:SWFByteArray = new SWFByteArray();
+					_streamBuffer.readBytes(rest);
+					_streamBuffer = rest;
+					
+					_foundMP3Start = true;
+					
+					break;
+				} catch (e:NotEnoughBytesError)
+				{
+					//we need to wait for more bytes
+					_streamBuffer.position = originalPosition;
+					break;
+				} catch (e:InvalidHeaderStart)
+				{
+					_streamBuffer.position = originalPosition + 1;
+				} catch (e:InvalidSamplingRateError)
+				{
+					_streamBuffer.position = originalPosition + 1;
+				} catch (e:InvalidMPEGVersionError)
+				{
+					_streamBuffer.position = originalPosition + 1;
+				} catch (e:InvalidBitrateError)
+				{
+					_streamBuffer.position = originalPosition + 1;
+				}
+			}			
+		}
+		
 		private function _gatherMP3Data():void
 		{
 			var originalPosition:uint;
 			var mp3Frame:MP3Frame;
 			
-			//try to read mp3 frames
-			while (_streamBuffer.bytesAvailable > 1)
+			while (_streamBuffer.bytesAvailable > 2)
 			{
 				originalPosition = _streamBuffer.position;
 				
@@ -404,12 +483,10 @@ package fly.sound
 					_mp3Frames.push(mp3Frame);
 				} catch (e:InvalidHeaderStart)
 				{
-					_streamBuffer.position = originalPosition + 1;
-				} catch (e:InvalidBitrateError)
-				{
-					_streamBuffer.position = originalPosition + 1;
-				} catch (e:InvalidMPEGVersionError)
-				{
+					/*
+						Sometimes we suddenly encounter a bad frame. Usually this is 
+						caused by some kind of commercial at the start of the stream.
+					*/
 					_streamBuffer.position = originalPosition + 1;
 				} catch (e:NotEnoughBytesError)
 				{
@@ -417,8 +494,8 @@ package fly.sound
 					_streamBuffer.position = originalPosition;
 					break;
 				}
-			}
-			
+			}				
+
 			//remove the rest of the bytes
 			var rest:SWFByteArray = new SWFByteArray();
 			_streamBuffer.readBytes(rest);
