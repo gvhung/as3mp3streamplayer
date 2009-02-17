@@ -16,6 +16,14 @@ It is possible to use the URLStream class, which requires (if I am not mistaken)
 
 The URLStream can not send custom request headers if the request is a GET request. Most shoutcast server can not handle POST requests.
 
+== How can I use this library in Flash CS4? ==
+
+Actually, all you need to do is add the SWC to the ActionScript 3.0 publish settings as a library path.
+
+_Publish settings > Flash > Settings next to ActionScript 3.0 > Library path_
+
+Screenshots can be found here: http://actionscriptexamples.com/2008/10/26/using-the-flex-sdk-with-flash-cs4/
+
 
 == I noticed you used some classes in your code for which no source code is available, can you explain? ==
 
