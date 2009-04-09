@@ -31,21 +31,3 @@ It would then look like this (depending where you have Flex SDK): C:\Program\Ado
 6. In *Library Path* click on SWC file button and direct flash to SWC file you downloaded before. It should then add and pathway looking something like this: C:\Flex Libs\AS3MP3StreamPlayer.swc
 
 7. It should now be Done!
-
-To test if everything works, create a new ActionScript 3 project in Flash CS4 and paste this in Actions (Note that _wildcard_ is the symbol-key above 9 key in Numpad, google dosent like wildcards):
-
-import fly.sound._wildcard_
-
-import fly.sound.shoutcast.ShoutcastResponseHeader;
-
-import fly.sound.events.TitleChangeEvent;
-
-
-
-To add more functionality, add this below import codes:
-
-var ssp:MP3StreamPlayer = new MP3StreamPlayer();
-ssp.playStream("http://stream_url")
-
-
-This should get you up and running.
