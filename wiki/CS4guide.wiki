@@ -13,7 +13,7 @@ Step by Step:
 
 1. Download *completeSourceClasses.rar* AND *AS3MP3StreamPlayer.swc* from download directory and *Flex SDK* at http://download.macromedia.com/pub/flex/sdk/flex_sdk_3.zip
 
-2. Open your Rar file and extract everything into this directory:
+2. Open your *completeSourceClasses.rar* Rar file and extract everything into this directory:
 C:\Documents and Settings\{User}\{Local Settings}\Application Data\Adobe\Flash CS4\en\Configuration\Classes
 
 2.a. You should now have a folder named *fly* among *aso*, *com*, *FP7*, *FP8*, *FP9*, *FP10* and *mx* folders
