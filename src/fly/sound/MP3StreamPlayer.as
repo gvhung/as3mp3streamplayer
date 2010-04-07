@@ -684,6 +684,8 @@ package fly.sound
 			defineSound.soundFormat = SoundInformation.FORMAT_MP3;
 			defineSound.soundRate = SoundInformation.RATE_WHOLE;
 			defineSound.soundSize = SoundInformation.SIZE_16_BIT;
+			defineSound.soundType = SoundInformation.TYPE_STEREO;
+
 			
 			var mp3SoundData:MP3SoundData = new MP3SoundData();
 			mp3SoundData.mp3Frames = mp3Frames;
